@@ -109,11 +109,7 @@ document.getElementById("contact-form").addEventListener("submit", (event) => {
   // Validation
 
   //validate all inputs are filled
-  if (
-    !nameInput.value ||
-    !emailInput.value ||
-    !messageInput.value
-  ) {
+  if (!nameInput.value || !emailInput.value || !messageInput.value) {
     inputs.forEach((input) => {
       if (!input.value.trim()) {
         input.classList.add("error"); // Add error class to empty input
@@ -125,7 +121,7 @@ document.getElementById("contact-form").addEventListener("submit", (event) => {
 
   //validate email format
 
-  if (!emailRegex.test(emailInput.value)) {
+  if (!emailRegex.test(emailInput.value.trim())) {
     emailInput.classList.add("error"); //add error class to email
     showToaster("Invalid email format", true);
     return;
